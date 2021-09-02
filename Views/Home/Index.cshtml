@@ -12,25 +12,26 @@
     <body>
         <h1>Tip Calculator</h1>
         <form asp-action="Index" method="post">
-            <div asp-validation-summary="All"></div>
+            <!-- Use the asp data declarations from the view imports to declare an action. Load the index page through http get -->
+            <div asp-validation-summary="All"></div> <!-- create a seperate div for the validation messages -->
             <div>
-                <label asp-for="mealCost">Cost of the Meal: </label>
-                <input asp-for="mealCost" />
+                <label asp-for="mealCost">Cost of the Meal: </label> <!-- use the for tag helper mapped to the meal total field -->
+                <input asp-for="mealCost" /> <!-- use an input tag for the meal total field -->
             </div>
             <div>
-                <label asp-for="tip15">15% Tip: </label>
-                <input value="@ViewBag.tip15" readonly />
+                <label asp-for="tip15">15% Tip: </label> <!-- use the for tag helper mapped to the 15% tip total field -->
+                <input value="@ViewBag.tip15" readonly /> <!-- use an input tag for the 15% tip total field -->
             </div>
             <div>
-                <label asp-for="tip20">20% Tip: </label>
-                <input value="@ViewBag.tip20" readonly />
+                <label asp-for="tip20">20% Tip: </label> <!-- use the for tag helper mapped to the 20% tip total field -->
+                <input value="@ViewBag.tip20" readonly /> <!-- use an input tag for the 20% tip total field -->
             </div>
             <div>
-                <label asp-for="tip25">25% Tip: </label>
-                <input value="@ViewBag.tip25" readonly />
+                <label asp-for="tip25">25% Tip: </label> <!-- use the for tag helper mapped to the 25% tip total field -->
+                <input value="@ViewBag.tip25" readonly /> <!-- use an input tag for the 25% tip total field -->
             </div>
-            <button type="submit">Calculate</button>
-            <a asp-action="Index">Clear</a>
+            <button type="submit">Calculate</button> <!-- Create a button to fire of the http post method declared in the controller -->
+            <a asp-action="Index">Clear</a> <!-- Use an anchor tag to fire the http get method declared in the controller -->
         </form>
     </body>
 </html>

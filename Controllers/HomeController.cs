@@ -18,9 +18,10 @@ namespace TipCalculator.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet] //Use a tag to mapp the call to the get protocol
         public IActionResult Index()
         {
+            //Set all the fields for the index to 0
             ViewBag.mealCost = 0.00;
             ViewBag.tip15 = 0;
             ViewBag.tip20 = 0;
@@ -28,16 +29,16 @@ namespace TipCalculator.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost] //Use a tag top map the submit button post call to this function
         public IActionResult Index(TipCost model)
         {
-            if(ModelState.IsValid)
+            if(ModelState.IsValid) //Check if the model data is valid
             {
-                ViewBag.tip15 = model.CalcTip15(model.mealCost);
-                ViewBag.tip20 = model.CalcTip20(model.mealCost);
-                ViewBag.tip25 = model.CalcTip25(model.mealCost);
+                ViewBag.tip15 = model.CalcTip15(model.mealCost); //Set the 15% tip total to the model class' function
+                ViewBag.tip20 = model.CalcTip20(model.mealCost); //Set the 20% tip total to the model class' function
+                ViewBag.tip25 = model.CalcTip25(model.mealCost); //Set the 25% tip total to the model class' function
             }
-            else
+            else //If the model is invalid, set everything to 0
             {
                 ViewBag.tip15 = 0;
                 ViewBag.tip20 = 0;
